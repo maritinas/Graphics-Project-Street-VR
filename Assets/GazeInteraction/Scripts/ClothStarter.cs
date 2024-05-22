@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class ClothStarter : MonoBehaviour
 {
-    public GameObject stillCloth; // The object to hover over
+    public Cloth stillCloth; // The object to hover over
     public GameObject objectWithMovingCloth;
 
     public void MoveCloth()
     {
-        stillCloth.SetActive(false);
-        objectWithMovingCloth.SetActive(true);
+        stillCloth.externalAcceleration = new Vector3(3, 1, 1);
+        //objectWithMovingCloth.SetActive(true);
+    }
+
+    public void DeactiveCloth()
+    {
+        stillCloth.externalAcceleration = new Vector3(0, 0, -0.5f);
+        //objectWithMovingCloth.SetActive(false);
     }
 }
 

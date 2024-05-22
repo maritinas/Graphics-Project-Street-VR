@@ -12,7 +12,7 @@ public class LeavesFalling : MonoBehaviour
     {
         if (particleObject != null)
         {
-            particleObject.SetActive(true);    
+            particleObject.SetActive(true);
         }
     }
 
@@ -24,5 +24,5 @@ public class LeavesFalling : MonoBehaviour
         }
     }
 
-    
+
 }

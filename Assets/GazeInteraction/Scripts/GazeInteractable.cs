@@ -27,6 +27,8 @@ namespace TS.GazeInteraction
         public delegate void OnActivated(GazeInteractable interactable);
         public event OnActivated Activated;
 
+        public SetUserName setUserName;
+
         [Header("Configuration")]
         [SerializeField] private bool _isActivable;
         [SerializeField] private float _exitDelay;
@@ -68,6 +70,7 @@ namespace TS.GazeInteraction
         private void Start()
         {
             enabled = false;
+           
         }
 
         public void Enable(bool enable)
@@ -132,7 +135,7 @@ namespace TS.GazeInteraction
             float gazeExitTime = Time.time;
             _totalGazeTime += gazeExitTime - _gazeEnterTime;
 
-            SaveGazeData(_gazeEnterTime, gazeExitTime, _totalGazeTime, _lastInteractedTag);
+            SaveGazeData(_gazeEnterTime, gazeExitTime, _totalGazeTime, _lastInteractedTag, setUserName.USERNAME);
 
             Exit?.Invoke(this, interactor);
 
@@ -142,13 +145,14 @@ namespace TS.GazeInteraction
             IsActivated = false;
         }
 
-        private void SaveGazeData(float enterTime, float exitTime, float totalGazeTime, string interactedTag)
+        private void SaveGazeData(float enterTime, float exitTime, float totalGazeTime, string interactedTag, string USERNAME)
         {
             XElement gazeData = new XElement("GazeData",
                 new XElement("EnterTime", enterTime),
                 new XElement("ExitTime", exitTime),
                 new XElement("TotalGazeTime", totalGazeTime),
-                new XElement("InteractedTag", interactedTag) // Save the tag information
+                new XElement("InteractedTag", interactedTag),
+                new XElement("Username",USERNAME) // Save the tag information
             );
 
             string filePath = "D:\\VR project computer graphics\\Graphics-Project-Street-VR" + "/GazeData.xml";

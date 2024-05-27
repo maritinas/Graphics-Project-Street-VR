@@ -19,6 +19,7 @@ TagManager:
   - cloth_interaction
   - tree_interaction
   - flicker_interaction
+  - BusInteraction
   layers:
   - Default
   - TransparentFX

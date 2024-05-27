@@ -252,8 +252,8 @@ QualitySettings:
     terrainMaxTrees: 50
     excludedTargetPlatforms: []
   - serializedVersion: 3
-    name: Ultra
-    pixelLightCount: 4
+    name: Quest2
+    pixelLightCount: 1
     shadows: 0
     shadowResolution: 2
     shadowProjection: 1
@@ -266,9 +266,9 @@ QualitySettings:
     skinWeights: 4
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
-    anisotropicTextures: 2
-    antiAliasing: 2
-    softParticles: 1
+    anisotropicTextures: 1
+    antiAliasing: 8
+    softParticles: 0
     softVegetation: 1
     realtimeReflectionProbes: 1
     billboardsFaceCameraPosition: 1

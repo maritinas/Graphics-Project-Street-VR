@@ -1,28 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LeavesFalling : MonoBehaviour
 {
-    // Reference to the GameObject you want to activate
-    public GameObject particleObject;
+    // Reference to the ParticleSystem component
+    public ParticleSystem particleSystem;
 
-    // Method to set the GameObject as active
-    public void LeavesSetActive()
+
+    // Function to stop emitting further particles
+    public void StopEmitting()
     {
-        if (particleObject != null)
+        if (particleSystem.isPlaying)
         {
-            particleObject.SetActive(true);    
+            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
     }
 
-    public void LeavesDeactivate()
+    // Function to start emitting particles (if needed)
+    public void StartEmitting()
     {
-        if (particleObject != null)
+        if (!particleSystem.isPlaying)
         {
-            particleObject.SetActive(false);
+            particleSystem.Play();
         }
     }
-
-    
 }
+
+

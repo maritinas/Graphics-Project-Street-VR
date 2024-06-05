@@ -1,12 +1,10 @@
+
 #region Includes
 using UnityEngine;
 #endregion
 
 namespace TS.GazeInteraction
 {
-    /// <summary>
-    /// Component responsible for managing the gaze interaction.
-    /// </summary>
     public class GazeInteractor : MonoBehaviour
     {
         #region Variables
@@ -39,6 +37,7 @@ namespace TS.GazeInteraction
             _reticle = Instantiate(reticle);
             _reticle.SetInteractor(this);
         }
+
         private void Update()
         {
             _ray = new Ray(transform.position, transform.forward);
@@ -56,7 +55,7 @@ namespace TS.GazeInteraction
                 _reticle.Enable(true);
 
                 var interactable = _hit.collider.transform.GetComponent<GazeInteractable>();
-                if(interactable == null)
+                if (interactable == null)
                 {
                     Reset();
                     return;
@@ -100,7 +99,7 @@ namespace TS.GazeInteraction
         {
             _reticle.SetProgress(0);
 
-            if(_interactable == null) { return; }
+            if (_interactable == null) { return; }
             _interactable.GazeExit(this);
             _interactable = null;
         }
@@ -114,3 +113,4 @@ namespace TS.GazeInteraction
 #endif
     }
 }
+

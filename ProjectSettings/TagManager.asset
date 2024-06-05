@@ -13,6 +13,13 @@ TagManager:
   - right
   - left
   - particle leaves
+  - car_interaction
+  - shadow_interaction
+  - bike_interaction
+  - cloth_interaction
+  - tree_interaction
+  - flicker_interaction
+  - BusInteraction
   layers:
   - Default
   - TransparentFX
